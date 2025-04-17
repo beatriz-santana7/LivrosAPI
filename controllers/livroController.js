@@ -50,7 +50,7 @@ class LivroController{
         }
     };
 
-    static async listarLivrosPorEditora(req, res){
+    static async listarLivrosPorEditora(req, res){ //listar livro por editora
         const editora = req.query.editora;
         try{
             const listarLivrosPorEditora = await livro.find({editora: editora})  // edtora- prorpiedade , referenciando a model, 2º editora - variável que guarda a inf via rota, parâmetro de consulta
@@ -60,11 +60,10 @@ class LivroController{
         };
     };
 
-    static async listarLivrosPorAutor(req, res){
-        const autor = req.query.autor;
+    static async listarLivrosPorAutor(req, res){ //listar livro por autor
+        const autor = req.query.editora;
         try{
             const listarLivrosPorAutor = await livro.find({autor: autor})  // edtora- prorpiedade , referenciando a model, 2º editora - variável que guarda a inf via rota, parâmetro de consulta
-            .populate("autor"); 
             res.status(200).json(listarLivrosPorAutor);
         }catch (erro){
             res.status(500).json({message: `${erro.message} - falha na busca!`})

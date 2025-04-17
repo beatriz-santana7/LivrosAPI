@@ -5,6 +5,7 @@ const routes = express.Router();  //o express tem procedencia de rotas, ou seja,
 
 routes.get("/livros", LivroController.listarLivros);
 routes.get("/livros/busca", LivroController.listarLivrosPorEditora);
+routes.get("/livros/buscaAutor", LivroController.listarLivrosPorAutor);
 routes.get("/livros/:id", LivroController.listarLivroPorId);
 routes.post("/livros", LivroController.cadastroLivro);
 routes.put("/livros/:id", LivroController.atualizarLivro);

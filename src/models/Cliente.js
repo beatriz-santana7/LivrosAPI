@@ -11,4 +11,4 @@ const clienteSchema = new mongoose.Schema({
 
     const cliente = mongoose.model("clientes", clienteSchema);
 
-    export {cliente, clienteSchema};  //o Scheama - permite exportar o autor, como uma propriedade de livro
+    export default cliente;  //o Scheama - permite exportar o autor, como uma propriedade de livrohttps://chatgpt.com/c/67eea6f4-0698-800c-aadf-683e7787b7a4

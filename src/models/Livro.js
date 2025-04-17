@@ -13,6 +13,6 @@ const livroSchema = new mongoose.Schema({  //Schema: objeto de configuração, o
 
 const livro = mongoose.model("livros", livroSchema);
 
-export default livro;
+export {livro, livroSchema};
 
 //modelo - interface - objeto que representa uma coleção na base de dados

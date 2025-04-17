@@ -1,4 +1,4 @@
-import livro from "../src/models/Livro.js";
+import {livro} from "../src/models/Livro.js";
 
 class LivroController{
 
@@ -55,6 +55,17 @@ class LivroController{
         try{
             const listarLivrosPorEditora = await livro.find({editora: editora})  // edtora- prorpiedade , referenciando a model, 2º editora - variável que guarda a inf via rota, parâmetro de consulta
             res.status(200).json(listarLivrosPorEditora);
+        }catch (erro){
+            res.status(500).json({message: `${erro.message} - falha na busca!`})
+        };
+    };
+
+    static async listarLivrosPorAutor(req, res){
+        const autor = req.query.autor;
+        try{
+            const listarLivrosPorAutor = await livro.find({autor: autor})  // edtora- prorpiedade , referenciando a model, 2º editora - variável que guarda a inf via rota, parâmetro de consulta
+            .populate("autor"); 
+            res.status(200).json(listarLivrosPorAutor);
         }catch (erro){
             res.status(500).json({message: `${erro.message} - falha na busca!`})
         };
